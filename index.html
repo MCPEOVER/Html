@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 시스템</title>
+    <style>
+        /* 기본 여백 및 폰트 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+        }
+
+        /* 배경 및 화면 중앙 정렬 */
+        body {
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 로그인 박스 디자인 */
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        /* 입력 폼 디자인 */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* 입력창 클릭 시 테두리 색상 변경 */
+        .input-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        /* 로그인 버튼 디자인 */
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* 하단 링크 (회원가입 등) */
+        .extra-links {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .extra-links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .extra-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>로그인</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+            </div>
+            <div class="input-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+            </div>
+            <button type="submit" class="login-btn">로그인</button>
+            
+            <div class="extra-links">
+                <p>계정이 없으신가요? <a href="#">회원가입</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 로그인 폼 제출 시 작동하는 자바스크립트 (테스트용)
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            // 폼 제출 시 페이지가 새로고침 되는 기본 현상을 막습니다.
+            event.preventDefault(); 
+
+            // 입력된 아이디와 비밀번호 가져오기
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // 실제 서비스에서는 이 부분에서 서버(DB)로 데이터를 보내어 확인해야 합니다.
+            // 아래는 테스트를 위한 가짜 로그인 로직입니다. (아이디: admin, 비밀번호: 1234)
+            if(username === 'admin' && password === '1234') {
+                alert('로그인 성공! 환영합니다, ' + username + '님.');
+            } else {
+                alert('아이디 또는 비밀번호가 틀렸습니다.\n(테스트 계정: admin / 1234)');
+            }
+        });
+    </script>
+</body>
+</html>
